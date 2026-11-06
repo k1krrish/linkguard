@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #04060b;
+  color: #e2e8f0;
+  font-family: 'Rajdhani', 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-image:
+    /* NEUROVOID Tactical Telemetry Micro-Cross Grid */
+    radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    /* Holographic Projection Ambient Glows */
+    radial-gradient(1100px 500px at 15% -5%, rgba(0, 240, 255, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 85% 10%, rgba(123, 44, 191, 0.14), transparent 65%),
+    radial-gradient(1000px 600px at 50% 115%, rgba(99, 102, 241, 0.12), transparent 70%);
+  background-size: 32px 32px, 64px 64px, 64px 64px, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* ========================================================
+     NEUROVOID TACTICAL SURFACES & HUD PANELS
+     ======================================================== */
+  .glass {
+    position: relative;
+    border-radius: 0.625rem;
+    border: 1px solid rgba(0, 240, 255, 0.14);
+    background-color: rgba(7, 11, 22, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(0, 240, 255, 0.15);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card {
+    position: relative;
+    border-radius: 0.625rem;
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    background-color: rgba(9, 14, 28, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(0, 240, 255, 0.40);
+    background-color: rgba(13, 21, 42, 0.85);
+    box-shadow: 0 0 25px -4px rgba(0, 240, 255, 0.25), inset 0 1px 0 0 rgba(0, 240, 255, 0.30);
+  }
+
+  .glass-strong {
+    border-radius: 0.625rem;
+    border: 1px solid rgba(0, 240, 255, 0.22);
+    background-color: rgba(6, 9, 18, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 0 rgba(0, 240, 255, 0.25);
+  }
+
+  .glass-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 240, 255, 0.20);
+    background-color: rgba(0, 240, 255, 0.06);
+    padding: 0.2rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #00f0ff;
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.04em;
+    transition: all 0.15s ease;
+  }
+  .glass-pill:hover {
+    border-color: rgba(0, 240, 255, 0.50);
+    background-color: rgba(0, 240, 255, 0.15);
+    box-shadow: 0 0 15px -3px rgba(0, 240, 255, 0.35);
+  }
+
+  /* ========================================================
+     NEUROVOID TACTICAL ACTION BUTTONS
+     ======================================================== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.25rem;
+    border-radius: 0.45rem;
+    padding: 0 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    user-select: none;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #04060b, 0 0 0 4px #00f0ff;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.40;
+  }
+
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00f0ff 0%, #4f46e5 100%);
+    border: 1px solid rgba(0, 240, 255, 0.50);
+    box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.40);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+  .btn-primary:hover:not(:disabled) {
+    filter: brightness(1.15);
+    box-shadow: 0 0 26px -2px rgba(0, 240, 255, 0.60);
+    transform: translateY(-0.5px);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    background-color: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: #cbd5e1;
+    backdrop-filter: blur(6px);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background-color: rgba(0, 240, 255, 0.08);
+    border-color: rgba(0, 240, 255, 0.35);
+    color: #ffffff;
+    box-shadow: 0 0 14px -3px rgba(0, 240, 255, 0.25);
+  }
+  .btn-ghost:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    background-color: rgba(123, 44, 191, 0.18);
+    border: 1px solid rgba(123, 44, 191, 0.45);
+    color: #e9d5ff;
+    box-shadow: 0 0 14px -4px rgba(123, 44, 191, 0.35);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background-color: rgba(123, 44, 191, 0.30);
+    border-color: rgba(157, 78, 221, 0.60);
+    color: #ffffff;
+  }
+
+  .btn-sm {
+    height: 1.875rem;
+    padding: 0 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-xs {
+    height: 1.625rem;
+    padding: 0 0.5rem;
+    font-size: 0.6875rem;
+    line-height: 0.875rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+  }
+
+  /* ========================================================
+     FORM CONTROLS (TACTICAL TERMINAL INPUTS)
+     ======================================================== */
+  .field {
+    width: 100%;
+    height: 2.125rem;
+    border-radius: 0.45rem;
+    padding: 0 0.75rem;
+    font-size: 0.8125rem;
+    background-color: rgba(6, 10, 20, 0.90);
+    border: 1px solid rgba(0, 240, 255, 0.18);
+    color: #f1f5f9;
+    backdrop-filter: blur(6px);
+    transition: all 0.15s ease;
+  }
+  .field::placeholder {
+    color: #64748b;
+  }
+  .field:focus {
+    outline: none;
+    background-color: rgba(10, 15, 30, 0.95);
+    border-color: #00f0ff;
+    box-shadow: 0 0 16px -2px rgba(0, 240, 255, 0.35);
+  }
+
+  .label {
+    margin-bottom: 0.375rem;
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  /* ========================================================
+     NEUROVOID HUD TABLES
+     ======================================================== */
+  .th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.14);
+    background-color: rgba(0, 240, 255, 0.025);
+    color: #7dd3fc;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .td {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    line-height: 1.4;
+    vertical-align: middle;
+  }
+}
+
+/* ========================================================
+   SKELETON & UTILITIES
+   ======================================================== */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.45rem;
+  background-color: rgba(0, 240, 255, 0.04);
+  border: 1px solid rgba(0, 240, 255, 0.08);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.10), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.20);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles for reports */
+@media print {
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .glass, .glass-card, .glass-strong {
+    background: #fff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #111 !important;
+  }
+  .print-area * {
+    color: #111 !important;
+  }
+  .print-area .text-slate-400, .print-area .text-slate-500 {
+    color: #475569 !important;
+  }
+  main {
+    overflow: visible !important;
+  }
+}

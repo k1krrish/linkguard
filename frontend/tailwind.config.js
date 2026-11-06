@@ -1,0 +1,80 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["'Rajdhani'", "'Plus Jakarta Sans'", "Inter", "-apple-system", "sans-serif"],
+        display: ["'Orbitron'", "'Rajdhani'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+      },
+      colors: {
+        neuro: {
+          void: "#04060b",
+          abyss: "#070b14",
+          card: "#0b101e",
+          surface: "#10162a",
+          border: "rgba(0, 240, 255, 0.16)",
+          "border-strong": "rgba(0, 240, 255, 0.35)",
+          cyan: "#00f0ff",
+          "cyan-glow": "rgba(0, 240, 255, 0.45)",
+          violet: "#7b2cbf",
+          purple: "#9d4edd",
+          emerald: "#00ff88",
+          crimson: "#ff0055",
+          amber: "#ffaa00",
+        },
+        ink: {
+          950: "#04060b",
+          900: "#070b14",
+          850: "#0b101e",
+          800: "#10162a",
+          750: "#151d36",
+          700: "#1c2645",
+        },
+        accent: {
+          indigo: "#6366f1",
+          "indigo-light": "#818cf8",
+          cyan: "#00f0ff",
+          "cyan-light": "#38bdf8",
+          violet: "#8b5cf6",
+          rose: "#ff0055",
+          amber: "#f59e0b",
+          emerald: "#00ff88",
+        },
+      },
+      boxShadow: {
+        hologram: "0 0 25px -4px rgba(0, 240, 255, 0.35), inset 0 1px 0 0 rgba(0, 240, 255, 0.4)",
+        "hologram-sm": "0 0 12px -2px rgba(0, 240, 255, 0.25)",
+        "crimson-glow": "0 0 20px -4px rgba(255, 0, 85, 0.45)",
+        "emerald-glow": "0 0 20px -4px rgba(0, 255, 136, 0.40)",
+      },
+      letterSpacing: {
+        tightest: "-0.035em",
+        tighter: "-0.02em",
+        tight: "-0.01em",
+        normal: "0",
+        wide: "0.025em",
+        wider: "0.05em",
+        widest: "0.15em",
+        cyber: "0.22em",
+      },
+      keyframes: {
+        shimmer: { "100%": { transform: "translateX(100%)" } },
+        rise: { "0%": { opacity: "0", transform: "translateY(4px)" }, "100%": { opacity: "1", transform: "none" } },
+        pulseSlow: { "0%, 100%": { opacity: "1" }, "50%": { opacity: "0.4" } },
+        hudScan: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "0 100%" },
+        },
+      },
+      animation: {
+        rise: "rise .18s cubic-bezier(0.16, 1, 0.3, 1) both",
+        pulseSlow: "pulseSlow 2.5s ease-in-out infinite",
+        scan: "hudScan 8s linear infinite",
+      },
+    },
+  },
+  plugins: [],
+};
