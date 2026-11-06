@@ -6,7 +6,6 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4+-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 [![Scapy](https://img.shields.io/badge/Scapy-2.5+-FF6F00?style=flat-square)](https://scapy.net)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python)](https://www.python.org)
-[![Theme: NEUROVOID](https://img.shields.io/badge/UI%2FUX-NEUROVOID%20Tactical%20HUD-00f0ff?style=flat-square)](https://www.behance.net/gallery/234179175/NEUROVOID-Game-UI-UX)
 
 **Evidence-Based Network Troubleshooting Across DNS, TCP/IP, and Packet Traces.**  
 *A Computer Networks (CSE3003) Project.*
@@ -24,21 +23,12 @@ LinkGuard investigates application-layer network symptoms (e.g., DNS lookup time
 
 ---
 
-## Visual Design: NEUROVOID Sci-Fi HUD Aesthetic
-
-The application features the **NEUROVOID** tactical cybernetic game UI/UX aesthetic inspired by modern sci-fi command terminals:
-- **Palette**: Deep void obsidian (`#04060b`), Neural Cyan (`#00f0ff`), Bio-Matrix Emerald (`#00ff88`), Critical Crimson (`#ff0055`), Quantum Violet (`#7b2cbf`), and Warning Amber (`#ffaa00`).
-- **Typography**: Google Fonts [`Orbitron`](https://fonts.google.com/specimen/Orbitron) for display headings, [`Rajdhani`](https://fonts.google.com/specimen/Rajdhani) for high-density interface elements, and [`JetBrains Mono`](https://fonts.google.com/specimen/JetBrains+Mono) for telemetry readouts and frame inspection.
-- **HUD Detailing**: Reticle corner brackets (`corner-hud`), telemetry status scanlines, and glowing neon indicators.
-
----
-
 ## System Architecture
 
 ```mermaid
 flowchart TD
     subgraph Frontend ["Frontend Terminal (React 19 + TypeScript + Vite)"]
-        UI["NEUROVOID Tactical Interface"]
+        UI["Incident Operations Dashboard"]
         OV["Incident Overview Dashboard"]
         INV["Investigation Workbench"]
         PKT["Interactive Packet Explorer"]
@@ -159,7 +149,7 @@ linkguard/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── domain.tsx           # Findings, probe telemetry, packet & traffic charts
-│   │   │   └── ui.tsx               # NEUROVOID tactical panels, badges, reticles, stats
+│   │   │   └── ui.tsx               # High-density UI panels, badges, reticles, stats
 │   │   ├── pages/
 │   │   │   ├── InvestigationDetails.tsx # Live telemetry, findings, and resolution
 │   │   │   ├── NewInvestigation.tsx     # 3-way probe builder & drag-and-drop PCAP
@@ -169,13 +159,13 @@ linkguard/
 │   │   │   └── Rules.tsx                # Formal diagnostic rule catalog
 │   │   ├── api.ts                   # Type-safe backend API integration client
 │   │   ├── context.tsx              # Global state management for incidents
-│   │   ├── index.css                # NEUROVOID tactical HUD styles & scanlines
+│   │   ├── index.css                # Forensic UI styles & scanline accents
 │   │   ├── lib.ts                   # Utility functions & formatting helpers
 │   │   ├── main.tsx                 # React entry point
 │   │   └── types.ts                 # TypeScript type definitions
 │   ├── index.html                   # HTML template with Google Fonts (Orbitron/Rajdhani)
 │   ├── package.json                 # Frontend dependencies
-│   ├── tailwind.config.js           # NEUROVOID design tokens & color palette
+│   ├── tailwind.config.js           # Design tokens & color palette
 │   └── vite.config.ts               # Vite configuration & proxy
 ├── docs/
 │   ├── architecture.md              # Deep architectural overview & data flow
@@ -238,13 +228,13 @@ npm install
 npm run dev
 ```
 
-- **NEUROVOID Frontend Terminal**: [http://localhost:5173](http://localhost:5173)
+- **Frontend Dashboard**: [http://localhost:5173](http://localhost:5173)
 
 ---
 
 ### 3. Production & Cloud Deployment (Docker)
 
-LinkGuard includes a multi-stage `Dockerfile` that packages both the React NEUROVOID frontend build and the FastAPI backend engine into a single, unified container:
+LinkGuard includes a multi-stage `Dockerfile` that packages both the React frontend build and the FastAPI backend engine into a single, unified container:
 
 #### Run with Docker Compose
 ```bash

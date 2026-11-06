@@ -43,10 +43,13 @@ app = FastAPI(
     description="Evidence-based network troubleshooting using DNS, TCP/IP and packet analysis. Educational project.",
     lifespan=lifespan,
 )
+_cors_origins = get_settings().cors_origins
+_allow_all = "*" in _cors_origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_settings().cors_origins,
-    allow_methods=["GET", "POST", "DELETE"],
+    allow_origins=["*"] if _allow_all else _cors_origins,
+    allow_origin_regex=None if _allow_all else r"https://.*\.vercel\.app",
+    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 

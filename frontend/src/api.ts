@@ -3,7 +3,8 @@ import type {
   RuleInfo, SampleInfo, Symptom,
 } from "./types";
 
-const BASE = "/api";
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "").replace(/\/+$/, "");
+const BASE = API_ORIGIN ? `${API_ORIGIN}/api` : "/api";
 
 export class ApiError extends Error {
   constructor(public status: number, public code: string, message: string, public fields?: { field: string; problem: string }[]) {
