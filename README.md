@@ -242,7 +242,24 @@ npm run dev
 
 ---
 
-### 3. Running Automated Tests
+### 3. Production & Cloud Deployment (Docker)
+
+LinkGuard includes a multi-stage `Dockerfile` that packages both the React NEUROVOID frontend build and the FastAPI backend engine into a single, unified container:
+
+#### Run with Docker Compose
+```bash
+docker compose up --build -d
+```
+Access the unified application at [http://localhost:8000](http://localhost:8000).
+
+#### Deploy to Cloud (Render / Railway / Fly.io / VPS)
+- **Render**: Connect your GitHub repository and select **Web Service** using `Dockerfile` (or use the included `render.yaml`).
+- **Railway**: Click **Deploy from GitHub repo** — Railway automatically detects the root `Dockerfile`.
+- **Fly.io**: Run `fly launch` and deploy with standard port 8000 routing.
+
+---
+
+### 4. Running Automated Tests
 
 #### Backend Test Suite (Pytest)
 ```bash

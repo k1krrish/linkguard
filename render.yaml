@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: linkguard
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: LINKGUARD_MAX_UPLOAD_MB
+        value: 10
+      - key: LINKGUARD_MAX_PACKETS
+        value: 20000
+      - key: LINKGUARD_ALLOW_PRIVATE_TARGETS
+        value: 0

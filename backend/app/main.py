@@ -7,10 +7,12 @@ Interactive API docs:         http://localhost:8000/docs
 from contextlib import asynccontextmanager
 import logging
 
+from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
 from app.config import get_settings
@@ -84,3 +86,14 @@ async def _unexpected(_: Request, exc: Exception) -> JSONResponse:
 
 
 app.include_router(router)
+
+# Mount static frontend build if present for unified production deployment
+_dist_candidates = [
+    Path(__file__).resolve().parent.parent.parent / "frontend" / "dist",
+    Path("/app/frontend/dist"),
+]
+for _candidate in _dist_candidates:
+    if _candidate.is_dir() and (_candidate / "index.html").is_file():
+        app.mount("/", StaticFiles(directory=str(_candidate), html=True), name="static")
+        log.info(f"Mounted production frontend from {_candidate}")
+        break
