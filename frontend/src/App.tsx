@@ -1,4 +1,4 @@
-import { Activity, BookOpenCheck, CheckCircle2, ChevronRight, FileText, FlaskConical, LayoutDashboard, Menu, PackageSearch, PlusCircle, RefreshCw, ShieldCheck, Sparkles, X } from "lucide-react";
+import { Activity, BookOpenCheck, CheckCircle2, ChevronRight, ExternalLink, FileText, FlaskConical, LayoutDashboard, Menu, PackageSearch, PlusCircle, RefreshCw, ShieldCheck, Sparkles, X } from "lucide-react";
 import { useEffect, useState, type ComponentType } from "react";
 import { AppProvider, useApp } from "./context";
 import { go, useRoute } from "./lib";
@@ -175,8 +175,48 @@ function Sidebar({ active, onNavigate }: { active: string; onNavigate: () => voi
         )}
       </div>
 
-      {/* Engine Status */}
-      <div className="p-3 border-t border-neuro-cyan/15">
+      {/* Cloud Deployment, System About & Engine Status */}
+      <div className="p-3 border-t border-neuro-cyan/15 space-y-2">
+        <a
+          href="https://linkguard-de1c.onrender.com/#/"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between rounded-lg border border-neuro-cyan/30 bg-neuro-cyan/10 px-3 py-2 text-xs font-mono text-neuro-cyan hover:bg-neuro-cyan/20 hover:border-neuro-cyan/60 transition-all group"
+          title="Open Live Cloud Deployment on Render"
+        >
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neuro-cyan opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-neuro-cyan shadow-[0_0_8px_#00f0ff]" />
+            </span>
+            <span className="font-semibold tracking-wider text-white group-hover:text-neuro-cyan transition-colors">
+              LIVE CLOUD
+            </span>
+          </div>
+          <span className="flex items-center gap-1 text-[10px] text-neuro-cyan/80 group-hover:text-white transition-colors">
+            onrender.com <ExternalLink className="h-3 w-3" />
+          </span>
+        </a>
+
+        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-2.5 font-mono text-[11px] space-y-1">
+          <div className="flex items-center justify-between text-slate-400">
+            <span className="text-neuro-cyan/80 font-semibold">[ABOUT // SYS]</span>
+            <span className="text-[10px] text-slate-500">CSE3003</span>
+          </div>
+          <div className="text-[10px] text-slate-400 line-clamp-1">
+            LinkGuard Forensic Detective
+          </div>
+          <a
+            href="https://github.com/k1krrish/linkguard"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between pt-1 text-[10px] text-slate-400 hover:text-neuro-cyan transition-colors"
+          >
+            <span>GitHub Repository</span>
+            <ExternalLink className="h-2.5 w-2.5" />
+          </a>
+        </div>
+
         <BackendStatus />
       </div>
     </aside>

@@ -35,7 +35,11 @@ class Settings:
     max_timeout: float = 10.0
     max_investigations: int = 50
     cors_origins: list[str] = field(
-        default_factory=lambda: ["http://localhost:5173", "http://127.0.0.1:5173"]
+        default_factory=lambda: [
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+            "https://linkguard-de1c.onrender.com",
+        ]
     )
 
 
